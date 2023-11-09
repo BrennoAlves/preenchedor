@@ -11,22 +11,48 @@ def run(playwright: Playwright) -> None:
     page.get_by_text(roletas.roletaIdade()).click()
 
     #sorteando renda
-    page.get_by_text(roletas.roletaRenda()).click()
+    page.get_by_label(roletas.roletaRenda()).click()
 
     #sorteando se treina ou não
     b = roletas.roletaTreinamento()
-    page.get_by_text(b).click()
+    page.get_by_label(b).click()
 
     #passando de pagina
     page.get_by_role("button", name="Próxima").click()
+
+    #esperando carregar
+    page.wait_for_load_state("load")
+
+    #caminho para a pessoa que já treina
     if b == "Sim":
-        
+
+        print('foi')
+        #sorteando o valor que a pessoa paga
+        page.get_by_text(roletas.roletaPagamento()).click()
+
+        #sorteando o horario que a pessoa frequenta
+        page.get_by_text(roletas.roletaHorario()).click()
+
+        #sorteando a recorrencia que pessoa frequenta
+        page.get_by_text(roletas.roletaRecorrencia()).click()
+
+        #sorteando o que faria a pessoa aumentar a frequencia
+        page.get_by_text(roletas.aumentarRecorrencia()).click()
 
 
+    #caminho para a pessoa que não treina
+    else:
+
+        #sorteando o motivo de não treinar
+        page.get_by_text(roletas.pqnt()).click()
+
+        #sorteando o quanto pagaria
+        page.get_by_text(roletas.disposicaoPagamento()).click()
 
     #enviar o forms
     page.get_by_role("button", name="Enviar").click()
-    
+
+    #fechando o navegador
     context.close()
     browser.close()
 
