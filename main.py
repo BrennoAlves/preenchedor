@@ -1,12 +1,22 @@
 from playwright.sync_api import Playwright, sync_playwright
 import roletas
+import time
+import random
 
-def run(playwright: Playwright) -> None:
-    browser = playwright.chromium.launch(headless=False)
+def run(playwright : Playwright) -> None:
+    browser = playwright.chromium.launch(headless=True)
     context = browser.new_context()
     page = context.new_page()
     page.goto("https://docs.google.com/forms/d/e/1FAIpQLSeyAtCtdop1EfcStNz6Lee6LzqdRNI1HHNpDwHkseHXVGuOeQ/viewform")
-        
+
+    # Sorteia um tempo aleatório entre 1 e 3 minutos
+    tempo = time.time() + random.randint(60, 180)
+
+    # Verifica se o tempo já passou
+    while time.time() <= tempo:
+        # Faz alguma coisa enquanto espera o tempo acabar
+        time.sleep(1)
+
     #sorteando idade
     page.get_by_text(roletas.roletaIdade()).click()
 
@@ -26,7 +36,6 @@ def run(playwright: Playwright) -> None:
     #caminho para a pessoa que já treina
     if b == "Sim":
 
-        print('foi')
         #sorteando o valor que a pessoa paga
         page.get_by_text(roletas.roletaPagamento()).click()
 
@@ -58,3 +67,6 @@ def run(playwright: Playwright) -> None:
 
 with sync_playwright() as playwright:
     run(playwright)
+
+
+print('Concluido')

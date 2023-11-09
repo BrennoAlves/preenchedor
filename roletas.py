@@ -2,7 +2,7 @@ import random
 
 def roletaIdade():
     idades = ["Abaixo dos 19 anos", "Entre 18 e 20 anos", "Entre 21 e 25 anos", "Entre 26 e 30 anos", "Entre 30 e 35 anos", "Entre 40 e 45 anos", "Entre 45 e 50 anos", "Entre 55 e 60 anos", "Mais do que 60 anos"]
-    pesos = [1, 1.2, 1.2, 1, 1, 1, 1, 1, 1]
+    pesos = [1, 1, 1, 1, 1, 1, 1, 1, 1]
     idadeRoletada = random.choices(idades, weights=pesos, k=1)
     return idadeRoletada[0]
 
@@ -14,7 +14,7 @@ def roletaRenda():
 
 def roletaTreinamento():
     treinamento = ["Sim","Não"]
-    pesos = [1,0]
+    pesos = [1,1]
     treinamentoRoletado = random.choices(treinamento, weights=pesos, k=1)
     return treinamentoRoletado[0]
 
