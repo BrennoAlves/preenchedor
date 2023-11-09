@@ -1,0 +1,63 @@
+    #idade
+    page.get_by_text("Abaixo dos 19 anos").click()
+    page.get_by_text("Entre 18 e 20 anos").click()
+    page.get_by_text("Entre 21 e 25 anos").click()
+    page.get_by_text("Entre 26 e 30 anos").click()
+    page.get_by_text("Entre 30 e 35 anos").click()
+    page.get_by_text("Entre 40 e 45 anos").click()
+    page.get_by_text("Entre 45 e 50 anos").click()
+    page.get_by_text("Entre 55 e 60 anos").click()
+    page.get_by_text("Mais do que 60 anos").click()
+
+    #salario
+    page.get_by_text("Abaixo de 1 salário mínimo").click()
+    page.get_by_text("Entre 1 e 2 salários mínimos").click()
+    page.get_by_label("Entre 1 e 2 salários mínimos").dblclick()
+    page.get_by_text("Entre 2 e 3 salários mínimos").click()
+    page.get_by_text("Entre 3 e 4 salários minímos").click()
+    page.get_by_text("Entre 4 e 5 salários minímos").click()
+    page.get_by_text("Mais que 5 salários minímos").click()
+    
+    #treina atualmente
+    page.get_by_text("Sim").click()
+    page.get_by_text("Não").click()
+
+    #passar de pagina
+    page.get_by_role("button", name="Próxima").click()
+
+    #quanto paga
+    page.locator("label").filter(has_text="Menos que 70 reais").click()
+    page.get_by_text("Entre 70 e 80 reais").click()
+    page.locator("div").filter(has_text=re.compile(r"^Entre 81 e 90 reais$")).nth(1).click()
+    page.get_by_text("Entre 91 e 100 reais").click()
+    page.get_by_text("Entre 101 e 110 reais").click()
+    page.get_by_text("Acima de 111 reais").click()
+
+    #horario
+    page.get_by_text("Antes das 6:00 horas").click()
+    page.get_by_text("Entre 6:00 e 8:00").click()
+    page.get_by_text("Entre 8:00 e 12:00").click()
+    page.get_by_text("Entre 12:00 e 18:00").click()
+    page.get_by_text("Entre 18:00 e 22:00").click()
+    page.get_by_text("Entre 22:00 e 00:00").click()
+
+    #recorrencia
+    page.get_by_text("1 vez por semana").click()
+    page.get_by_text("2 vezes por semana").click()
+    page.get_by_text("3 vezes por semana").click()
+    page.locator("div").filter(has_text=re.compile(r"^4 vezes por semana$")).nth(1).click()
+    page.locator("div").filter(has_text=re.compile(r"^5 vezes por semana$")).nth(1).click()
+    page.get_by_text("6 vezes por semana").click()
+    page.get_by_text("7 vezes por semana").click()
+
+    #o que te levaria a aumentar sua frequência
+    page.get_by_text("Maior disponibilidade de horário").click()
+    page.get_by_text("Oferecer descontos para usuários frequentes").click()
+    page.get_by_text("Ampliar a variedade de aulas e atividades").click()
+    page.get_by_text("Investir na modernização e ampliação das instalações").click()
+    page.get_by_text("Realizar desafios de superação com prêmios atrativos").click()
+    page.get_by_text("Estou satisfeito com a minha frequência").click()
+
+    #enviar
+    page.get_by_role("button", name="Enviar").click()
+
